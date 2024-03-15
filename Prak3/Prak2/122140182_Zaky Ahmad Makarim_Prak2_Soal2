@@ -1,0 +1,29 @@
+# Kelas Pertama dengan Constructor dan Destructor
+class Mobil:
+    def __init__(self, merek, warna):
+        self.merek = merek
+        self.warna = warna
+        print(f"Mobil {merek} berwarna {warna} telah dibuat.")
+
+    def __del__(self):
+        print(f"Mobil {self.merek} berwarna {self.warna} telah dihancurkan.")
+
+# Kelas Kedua dengan Decorator
+def uppercase_decorator(func):
+    def wrapper(text):
+        result = func(text)
+        return result.upper()
+    return wrapper
+
+class TextProcessor:
+    @uppercase_decorator
+    def process_text(self, text):
+        return text
+
+# Contoh Penggunaan
+mobil1 = Mobil("Toyota", "Hitam")
+mobil2 = Mobil("Honda", "Putih")
+
+processor = TextProcessor()
+processed_text = processor.process_text("Hello, World!")
+print(processed_text)
